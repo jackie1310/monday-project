@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import Invites from './pages/Invites';
 function App() {
   return (
     <>
-      <Routes></Routes>
+      <Routes>
+        <Route path="/create" Component={Invites}/>
+      </Routes>
     </>
   );
 }
