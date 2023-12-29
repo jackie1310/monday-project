@@ -7,8 +7,11 @@ export default function Button ({label, type, click}) {
         case "responsive":
             style = "md:hidden";
             break;
-        case "front" || "back":
-            style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 right-10 px-4"
+        case "front":
+            style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 right-10 px-4";
+            break;
+        case "back":
+            style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 left-10 px-4 border border-gray-400 bg-white text-black"
     }
     return (
         <button className={`active:scale-75 transform transition duration-300 ease-in-out ${style} py-2 bg-blue-500 text-white rounded-sm`} onClick={() => click()}>
