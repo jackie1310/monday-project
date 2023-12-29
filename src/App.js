@@ -4,7 +4,7 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path='/create' Component={Role} />
+        <Route path='/create' Component={Role}/>
       </Routes>
     </>
   );
