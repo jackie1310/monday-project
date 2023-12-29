@@ -4,11 +4,10 @@ import "./CreateAccount.scss";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-export default function CreateAccount({setSection}) {
-    function moveOn () {
-        setSection(prev => prev + 1);
+export default function CreateAccount() {
+    function moveOn() {
+        window.location = '/create';
     }
-    
     return (
         <Layout img={img2}>
             <div className="pt-3">
