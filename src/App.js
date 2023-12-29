@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import Role from './pages/Role';
 function App() {
   return (
     <>
-      <Routes></Routes>
+      <Routes>
+        <Route path='/create' Component={Role} />
+      </Routes>
     </>
   );
 }
