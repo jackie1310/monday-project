@@ -7,8 +7,22 @@ export default function Button ({label, type, click}) {
         case "responsive":
             style = "md:hidden";
             break;
+        case "front" || "back":
+            style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 right-10 px-4"
     }
     return (
-        <button className={`active:scale-75 transform transition duration-300 ease-in-out ${style} py-2 bg-blue-500 text-white rounded-sm`} onClick={() => click()}>{label}</button>
+        <button className={`active:scale-75 transform transition duration-300 ease-in-out ${style} py-2 bg-blue-500 text-white rounded-sm`} onClick={() => click()}>
+            {type === "back" && (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+            )}
+            {label}
+            {type === "front" && (
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+            )}
+        </button>
     )
 }
