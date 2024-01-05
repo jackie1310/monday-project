@@ -3,8 +3,10 @@ import img1 from "../assets/img1.png";
 import google from "../assets/google.png";
 import Button from "../components/Button";
 import Line from "../components/Line";
+import { useState } from "react";
 
 export default function SignUp() {
+    const [email, setEmail] = useState(null);
     function moveToCreate() {
         window.location = '/create';
     }
@@ -24,9 +26,9 @@ export default function SignUp() {
                         <div class="mx-4 text-gray-500">Or</div>
                         <Line/>
                     </div>
-                    <input type='email' placeholder='name@company.com' className='relative border border-gray-400 px-4 py-1'/>
-                    <Button label="Continue" type="none" click={moveToCreate}/>
-                    <Button label="Create account" type="responsive" click={moveToCreate}/>
+                    <input type='email' placeholder='name@company.com' value={email} onChange={e => setEmail(e.target.value)} className='relative border border-gray-400 px-4 py-1'/>
+                    <Button label="Continue" type="none" click={moveToCreate} disable={email === null ? true : false}/>
+                    <Button label="Create account" type="responsive" click={moveToCreate} disable={email === null ? true : false}/>
                 </div>
                 <div className='mt-10 hidden md:block'>
                     <h3 className='max-w-60 mx-auto'>By proceeding, you agree to the</h3> 
