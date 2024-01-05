@@ -4,7 +4,7 @@ import "./TableColumn.scss";
 import OptionSvg from "../../components/OptionSvg";
 import Button from "../../components/Button";
 
-export default function BoardSetUp() {
+export default function TableColumn() {
     const [boardName, setBoardName] = useState("");
     const [headers, setHeaders] = useState(3);
     const [rowsThisWeek, setRowsThisWeek] = useState(3);
