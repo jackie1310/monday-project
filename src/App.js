@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import TableItem from './page/TableItem/TableItems';
 function App() {
   return (
     <>
-      <Routes></Routes>
+      <Routes>
+        <Route path='/' Component={TableItem}/>
+      </Routes>
     </>
   );
 }
