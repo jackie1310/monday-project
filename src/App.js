@@ -1,12 +1,13 @@
 import { Routes, Route } from 'react-router-dom';
 import SignUp from './pages/SignUp';
-import Role from './pages/Role';
+import Create from './pages/Create';
+
 function App() {
   return (
     <>
       <Routes>
         <Route path='/' Component={SignUp}/>
-        <Route path='/create' Component={Role}/>
+        <Route path='/create' Component={Create}/>
       </Routes>
     </>
   );

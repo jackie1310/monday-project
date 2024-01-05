@@ -1,0 +1,18 @@
+.input-group {
+    position: relative;
+  }
+
+  .helper-text {
+    position: absolute;
+    bottom: -18px;
+    left: 0;
+    color: #666;
+    font-size: 12px;
+    transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+  }
+
+  .input-group:focus-within .helper-text {
+    opacity: 1;
+    color: rgb(239, 15, 15);
+  }
