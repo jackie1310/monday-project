@@ -1,8 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
+import TableColumn from './pages/TableColumn/TableColumn';
 function App() {
   return (
     <>
-      <Routes></Routes>
+      <Routes>
+        <Route path="/column" Component={TableColumn}/>
+      </Routes>
     </>
   );
 }
