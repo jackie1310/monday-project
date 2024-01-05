@@ -5,10 +5,16 @@
 :root {
     --font-family: Figtree, Roboto, Noto Sans Hebrew, Noto Kufi Arabic, Noto Sans JP, sans-serif;
 }
-body {
-    font-family: var(--font-family);
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
 }
 
-a {
-    @apply text-blue-300
+.font-lato {
+    font-family: 'Lato', sans-serif;
+}
+
+body {
+    @apply font-lato
 }
