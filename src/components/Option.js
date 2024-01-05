@@ -1,8 +1,7 @@
-export default function Option({type, label, value, selectedOption, setSelectedOption}) {
+import { Radio } from "antd";
+
+export default function Option({value}) {
     return (
-        <div className="flex text-sm gap-1 border px-4 py-2 rounded-3xl border-slate-400">
-            <input type={type} id={value} name={value} value={value} checked={selectedOption === value} onChange={() => setSelectedOption(value)}/>
-            <label>{label}</label>
-        </div>
+        <Radio label={value} value={value} className="flex text-sm gap-1 items-center border px-4 py-2 rounded-3xl border-slate-400">{value}</Radio>
     )
 }

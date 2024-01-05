@@ -1,11 +1,11 @@
-export default function Button ({label, type, click}) {
+export default function Button ({label, type, click, disable}) {
     let style = "";
     switch (type) {
         case "none":
-            style = "w-80 md:block hidden";
+            style = "w-80 md:block hidden bg-blue-500 text-white";
             break;
         case "responsive":
-            style = "md:hidden bg-blue-500 text-white";
+            style = "md:hidden bg-blue-500 text-white bg-blue-500";
             break;
         case "front":
             style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 right-10 px-4 bg-blue-500 text-white";
@@ -14,7 +14,7 @@ export default function Button ({label, type, click}) {
             style = "flex gap-1 items-center absolute -bottom-16 md:bottom-10 left-10 px-4 border border-gray-400 bg-white text-black"
     }
     return (
-        <button className={`active:scale-75 transform transition duration-300 ease-in-out ${style} py-2 rounded-sm`} onClick={() => click()}>
+        <button disabled={disable} className={`active:scale-75 transform transition duration-300 ease-in-out ${style} py-2 rounded-sm`} onClick={() => click()}>
             {type === "back" && (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
