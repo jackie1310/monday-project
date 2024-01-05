@@ -5,13 +5,13 @@ import Option from "../components/Option";
 import { SocialSites } from "../data/SocialSites";
 import { useState } from "react";
 
-export default function SocialAds() {
+export default function SocialAds({setSection}) {
     const [selectedAds, setSelectedAds] = useState(null);
     function moveOn() {
-        window.location = '/create';
+        setSection(prev => prev + 1);
     }
     function moveBack() {
-        window.location = '/';
+        setSection(prev => prev - 1);
     }
 
     return (

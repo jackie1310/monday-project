@@ -41,7 +41,9 @@ export default function TableBody({rows, cols, className, setState, selectedOpti
     return (
         <tbody className={className}>
             {createBoard()}
-            <td colSpan={cols} className="opacity-50 hover:cursor-pointer" onClick={() => setState(prev => prev + 1)}>+</td>
+            <tr>
+                <td colSpan={cols} className="opacity-50 hover:cursor-pointer" onClick={() => setState(prev => prev + 1)}>+</td>
+            </tr>
         </tbody>
     )
 }

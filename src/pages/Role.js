@@ -4,11 +4,11 @@ import { useState } from "react";
 import Option from "../components/Option";
 import Button from "../components/Button";
 
-export default function Role() {
+export default function Role({setSection}) {
     const [selectedOption, setSelectedOption] = useState(null);
     const [selectedRole, setSelectedRole] = useState(null);
     function moveOn() {
-        window.location = '/create';
+        setSection(prev => prev + 1);
     }
 
     return (

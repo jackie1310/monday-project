@@ -4,9 +4,9 @@ import "./CreateAccount.scss";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 
-export default function CreateAccount() {
+export default function CreateAccount({setSection}) {
     function moveOn() {
-        window.location = '/create';
+        setSection(prev => prev + 1);
     }
     return (
         <Layout img={img2}>

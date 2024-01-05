@@ -11,6 +11,9 @@ export default function Invites() {
             return [...prev, {email: '', role: ''}];
         });
     }
+    function moveToCreateTable() {
+        window.location = '/column';
+    }
     return (
         <Layout img={img5}>
             <div className="mx-10 mt-6">
@@ -27,7 +30,7 @@ export default function Invites() {
                     Add another
                 </button>
             </div>
-            <button className="bg-blue-500 text-white px-4 py-2 absolute right-10 md:bottom-10 -bottom-16 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
+            <button onClick={moveToCreateTable} className="bg-blue-500 text-white px-4 py-2 absolute right-10 md:bottom-10 -bottom-16 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
                 Invite your team
             </button>
             <button className="px-4 py-2 absolute left-10 md:bottom-10 -bottom-16 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">

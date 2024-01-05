@@ -4,7 +4,7 @@ import "./TableColumn.scss";
 import OptionSvg from "../../components/OptionSvg";
 import Button from "../../components/Button";
 
-export default function TableColumn() {
+export default function TableColumn({setSection}) {
     const [boardName, setBoardName] = useState("");
     const [headers, setHeaders] = useState(3);
     const [rowsThisWeek, setRowsThisWeek] = useState(3);
@@ -39,7 +39,12 @@ export default function TableColumn() {
             setSelectedOptions(prev => [...prev, value])
         }
     }
-
+    function moveOn () {
+        setSection(prev => prev + 1)
+    }
+    function moveBack () {
+        setSection(prev => prev - 1)
+    }
     return (
         <div className="md:flex block">
             <div className="md:w-1/2 w-full relative px-10 pt-20 mb-32">
@@ -76,13 +81,13 @@ export default function TableColumn() {
                             <i className={`fa-solid fa-clock-rotate-left bg-rose-500 ${style}`}></i>
                         </OptionSvg>
                     </form>
-                    <button className="active:scale-75 transform transition duration-300 ease-in-out py-2 border border-gray-500 rounded-sm flex gap-1 items-center absolute -bottom-16 md:-bottom-14 left-10 px-4">
+                    <button onClick={moveBack} className="active:scale-75 transform transition duration-300 ease-in-out py-2 border border-gray-500 rounded-sm flex gap-1 items-center absolute -bottom-16 md:-bottom-14 left-10 px-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
                         </svg>
                         Back
                     </button>
-                    <button className="active:scale-75 transform transition duration-300 ease-in-out py-2 bg-blue-500 text-white rounded-sm flex gap-1 items-center absolute -bottom-16 md:-bottom-14 right-10 px-4">
+                    <button onClick={moveOn} className="active:scale-75 transform transition duration-300 ease-in-out py-2 bg-blue-500 text-white rounded-sm flex gap-1 items-center absolute -bottom-16 md:-bottom-14 right-10 px-4">
                         Next 
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4">
                             <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />

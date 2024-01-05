@@ -2,7 +2,7 @@ import { useState } from "react"
 import "./BoardSetUp.scss";
 import TableBody from "../../components/Table";
 
-export default function BoardSetUp() {
+export default function BoardSetUp({setSection}) {
     const [boardName, setBoardName] = useState("");
     const [headers, setHeaders] = useState(3);
     const [rowsThisWeek, setRowsThisWeek] = useState(0);
@@ -13,6 +13,9 @@ export default function BoardSetUp() {
             cols.push(<th key={i}>----</th>)
         }
         return cols
+    }
+    function moveOn () {
+        setSection(prev => prev + 1);
     }
     return (
         <div className="md:flex block">
@@ -32,7 +35,7 @@ export default function BoardSetUp() {
                     />
                 </form>
                 <p className="bg-gray-100 p-4 mt-10 rounded-sm">In monday.com, "boards" are the place where all your content lives.</p>
-                <button className="flex gap-3 items-center absolute -bottom-16 md:-bottom-24 right-6 bg-gray-100 px-4 py-2 rounded-sm text-slate-400 active:scale-75 transform transition duration-300 ease-in-out">
+                <button onClick={moveOn} className="flex gap-3 items-center absolute -bottom-16 md:-bottom-24 right-6 bg-gray-100 px-4 py-2 rounded-sm text-slate-400 active:scale-75 transform transition duration-300 ease-in-out">
                     Next
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
