@@ -35,7 +35,7 @@ export default function BoardSetUp({setSection}) {
                     />
                 </form>
                 <p className="bg-gray-100 p-4 mt-10 rounded-sm">In monday.com, "boards" are the place where all your content lives.</p>
-                <button onClick={moveOn} className="flex gap-3 items-center absolute -bottom-16 md:-bottom-24 right-6 bg-gray-100 px-4 py-2 rounded-sm text-slate-400 active:scale-75 transform transition duration-300 ease-in-out">
+                <button disabled={boardName === ""} onClick={moveOn} className="flex gap-3 items-center absolute -bottom-16 md:-bottom-24 right-6 bg-gray-100 px-4 py-2 rounded-sm text-slate-400 active:scale-75 transform transition duration-300 ease-in-out">
                     Next
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
