@@ -3,7 +3,7 @@ import "./TableItem.scss";
 import { Radio } from "antd";
 import TableView from "../../components/ViewLayouts";
 
-export default function TableItem() {
+export default function TableItem({setSection}) {
     const [headers, setHeaders] = useState(3);
     const [rowsThisWeek, setRowsThisWeek] = useState(3);
     const [rowsNextWeek, setRowsNextWeek] = useState(1);
