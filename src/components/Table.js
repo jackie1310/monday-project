@@ -22,7 +22,7 @@ export default function TableBody({rows, cols, className, setState, selectedOpti
                             <i className="fa-regular fa-user bg-black rounded-full p-2 text-white"></i>
                         </td>)
                     }
-                    if (option === "Status") {
+                    else if (option === "Status") {
                         row.push(<td key={index} className={`${Status[i].style} text-white`}>{Status[i].name}</td>)
                     }
                     else if (option === "Due date") {
@@ -33,6 +33,14 @@ export default function TableBody({rows, cols, className, setState, selectedOpti
                     }
                     else if (option === "Timeline") {
                         row.push(<td key={index} className="px-2"><p className={`${Timeline[i].style} text-white rounded-xl`}>{currentDate.getDate()} - {currentDate.getDate() + 1} {Month[currentDate.getMonth()]}</p></td>)
+                    } else if (option === "Files") {
+                        row.push(<td key={index} className="px-2"></td>)
+                    } else if (option === "Budget") {
+                        row.push(<td key={index} className="px-2"></td>)
+                    } else if (option === "Last updated"){
+                        row.push(<td key={index} className="px-2"></td>)
+                    } else if (option === "Notes") {
+                        row.push(<td key={index} className="px-2"></td>)
                     }
                 })
             } else {

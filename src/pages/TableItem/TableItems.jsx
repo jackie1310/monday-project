@@ -1,7 +1,7 @@
 import { useState } from "react"
 import "./TableItem.scss";
 import { Radio } from "antd";
-import TableView from "../../components/ViewLayouts";
+import TableView from "../../components/TableView/TableView";
 
 export default function TableItem({setSection}) {
     const [headers, setHeaders] = useState(3);
@@ -71,7 +71,12 @@ export default function TableItem({setSection}) {
                 </div>
             </div>
             {/* Board */}
-            <TableView setHeaders={setHeaders} headers={headers} createHeader={createHeader} rowsThisWeek={rowsThisWeek} setRowsThisWeek={setRowsThisWeek} rowsNextWeek={rowsNextWeek} setRowsNextWeek={setRowsNextWeek} selectedOptions={selectedOptions} selectedItem={selectedItem}/>
+            <div className="md:w-1/2 bg-gray-100 pl-10 h-screen">
+                <div className="flex flex-col w-full bg-white pl-5 py-10 shadow-2xl shadow-blue-300">
+                    <h1 className="mb-5 text-4xl text-gray-600">My demo board</h1>
+                    <TableView boardName="My board demo" setHeaders={setHeaders} headers={headers} createHeader={createHeader} rowsThisWeek={rowsThisWeek} setRowsThisWeek={setRowsThisWeek} rowsNextWeek={rowsNextWeek} setRowsNextWeek={setRowsNextWeek} selectedOptions={selectedOptions} selectedItem={selectedItem}/>
+                </div>
+            </div>
         </div>
     )
 }

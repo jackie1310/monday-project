@@ -8,7 +8,7 @@ export default function OptionSvg({children, label, value, selectedOptions, hand
                 id={value} 
                 name={value}  
                 value={value} 
-                checked={selectedOptions.includes(value)} 
+                checked={selectedOptions.includes(value) || selectedOptions === value} 
                 onChange={() => handleChange(value)}
                 className="relative active:scale-75 transform transition duration-300 ease-in-out"
             >
