@@ -14,8 +14,14 @@ export default function TableBody({rows, cols, className, setState, selectedOpti
             if (selectedOptions?.length > 0) {
                 selectedOptions.map((option, index) => {
                     if (option === "Project") {
-                        row.push(<td key={index} className="pr-4">{item} {numOfItem}</td>)
-                        numOfItem++;
+                        if (typeof item === 'string'){
+                            row.push(<td key={index} className="pr-4">{item} {numOfItem}</td>)
+                            numOfItem++;
+                        }
+                        else {
+                            row.push(<td key={index} className="pr-4">{item[numOfItem - 1] === '' ? `Task ${numOfItem}` : item[numOfItem - 1]}</td>)
+                            numOfItem++;
+                        }
                     }
                     else if (option === "Owner") {
                         row.push(<td key={index}>

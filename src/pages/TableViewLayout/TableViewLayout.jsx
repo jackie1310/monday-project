@@ -15,6 +15,7 @@ export default function TableViewLayout({setSection}) {
     const [selectedOptions, setSelectedOptions] = useState(["Project", "Owner", "Status", "Due date", "Priority", "Timeline"]);
     const [selectedView, setSelectedView] = useState("Table");
     const [listOfView, setListOfView] = useState(["Table"]);
+    const [selectedItem, setSelectedItem] = useState("Mission");
     const style = "absolute -left-1 -top-0.5 rounded-sm z-10 p-1.5 text-white w-6";
     function createHeader() {
         const cols = []
@@ -96,7 +97,7 @@ export default function TableViewLayout({setSection}) {
                         <button>+</button>
                     </div>
                     <div className="overflow-auto h-[435px]">
-                        {selectedView === "Table" && <TableView setHeaders={setHeaders} headers={headers} createHeader={createHeader} rowsThisWeek={rowsThisWeek} setRowsThisWeek={setRowsThisWeek} rowsNextWeek={rowsNextWeek} setRowsNextWeek={rowsNextWeek} selectedOptions={selectedOptions} selectedItem="Mission"/>}
+                        {selectedView === "Table" && <TableView setHeaders={setHeaders} headers={headers} createHeader={createHeader} rowsThisWeek={rowsThisWeek} setRowsThisWeek={setRowsThisWeek} rowsNextWeek={rowsNextWeek} setRowsNextWeek={rowsNextWeek} selectedOptions={selectedOptions} selectedItem={selectedItem}/>}
                         {selectedView === "Kanban" && <KanbanView selectedItem="Mission" selectedOptions={selectedOptions}/>}
                         {selectedView === "Gantt" && <GanttView/>}
                         {selectedView === "Timeline" && <TimelineView/>}
