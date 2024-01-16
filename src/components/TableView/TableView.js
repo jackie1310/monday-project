@@ -1,12 +1,14 @@
 import TableBody from "../Table";
 import './TableView.scss';
 
-export default function TableView({setHeaders, headers, createHeader, rowsThisWeek, setRowsThisWeek, rowsNextWeek, setRowsNextWeek, selectedOptions, selectedItem}) {
+export default function TableView({setHeaders, headers, createHeader, rowsThisWeek, setRowsThisWeek, rowsNextWeek, setRowsNextWeek, selectedOptions, selectedItem, groups}) {
     return (      
         <div className="text-sm overflow-x-scroll">
             <div className="w-fit mb-3">
-                <div className="border-2 border-blue-500 rounded-lg"></div>
-                <h2 className="">This week</h2>
+                {groups[0] === ''
+                    ? <div className="border-4 w-40 border-blue-500 rounded-lg"></div>
+                    : <h2 className="text-xl text-gray-500">{groups[0]}</h2>
+                }
             </div>
             <div className="tables">
                 <div className="flex flex-col border-l-4 rounded-lg border-blue-500 mb-10">
@@ -22,8 +24,10 @@ export default function TableView({setHeaders, headers, createHeader, rowsThisWe
                 </div>
                     
                 <div className="w-fit mb-3">
-                    <div className="border-2 border-green-500 rounded-lg"></div>
-                    <h2 className="">Next week</h2>
+                    {groups[1] === ''
+                        ? <div className="border-4 w-40 border-green-500 rounded-lg"></div>
+                        : <h2 className="text-xl text-gray-500">{groups[1]}</h2>
+                    }
                 </div>
 
                 <div className="flex border-l-4 rounded-lg border-green-500">
