@@ -54,7 +54,7 @@ export default function CreateTable() {
         // }
         if (section === 2) {
             if (categories.length < 2) {
-                setCategories(["Task", "Owner", "Status", "Due date"]);
+                setCategories([itemName, "Owner", "Status", "Due date"]);
             }
         }
         else if (section === 3) {
@@ -84,7 +84,7 @@ export default function CreateTable() {
             case 2:
                 return <TableColumn setSection={setSection} categories={categories} setCategories={setCategories}/>;
             case 3:
-                return <TableItem setSection={setSection} itemName={itemName} setItemName={setItemName} itemNames={itemNames} setItemNames={setItemNames}/>;
+                return <TableItem setSection={setSection} itemName={itemName} setItemName={setItemName} itemNames={itemNames} setItemNames={setItemNames} setCategories={setCategories}/>;
             case 4:
                 return <TableViewLayout setSection={setSection} handleView={handleView} selectedView={selectedView}/>
             case 5:

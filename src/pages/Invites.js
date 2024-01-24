@@ -3,6 +3,7 @@ import img5 from "../assets/img5.png";
 import dev from "../assets/monday-dev.png";
 import InviteUser from "../components/InviteUser";
 import { useState } from "react";
+import Button from "../components/Button";
 
 export default function Invites() {
     const [users, setUsers] = useState([{}, {}]);
@@ -30,12 +31,14 @@ export default function Invites() {
                     Add another
                 </button>
             </div>
-            <button onClick={moveToCreateTable} className="bg-blue-500 text-white px-4 py-2 absolute right-10 md:bottom-10 -bottom-16 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
+            <Button label="Invite your team" type="front" click={moveToCreateTable} none={true}/>
+            {/* <button onClick={moveToCreateTable} className="bg-blue-500 text-white px-4 py-2 absolute right-10 md:bottom-16 -bottom-32 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
                 Invite your team
-            </button>
-            <button className="px-4 py-2 absolute left-10 md:bottom-10 -bottom-16 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
+            </button> */}
+            {/* <button className="px-4 py-2 absolute left-10 md:bottom-16 -bottom-32 rounded-sm active:scale-75 transform transition duration-300 ease-in-out">
                 Remind me later
-            </button>
+            </button> */}
+            <Button label="Remind me later" type="back" click={moveToCreateTable} none={true}/>
         </Layout>
     )
 }

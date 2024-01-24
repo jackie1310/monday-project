@@ -44,7 +44,7 @@ export default function GroupTasks({setSection, groups, setGroups}) {
                         <p>"Groups" keep the related items together to help you better organize your work.</p>
                     </div>
                     <Button label="Back" type="back" click={moveBack} />
-                    <Button label="Get Started" type="front" click={moveOn} />
+                    <Button label="Get Started" type="front" click={moveOn} none={true}/>
                 </div>
             </div>
     )

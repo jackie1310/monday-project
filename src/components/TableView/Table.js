@@ -17,7 +17,7 @@ export default function TableBody({rows, cols, className, setState, categories, 
             const row = [];
             if (categories?.length > 1) {
                 categories.map((option, index) => {
-                    if (option === "Task" || option === "") {
+                    if (option === item) {
                         // if (typeof items === 'string'){
                         //     row.push(<td key={index} className="pr-4">{option === "Project" ? `${item === "" ? "Task" : item} ${numOfItem}` : <div className="border-2 w-12 border-gray-400 my-3 ml-3 rounded-lg"></div>}</td>)
                         //     numOfItem++;

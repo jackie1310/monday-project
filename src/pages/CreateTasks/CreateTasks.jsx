@@ -13,6 +13,7 @@ export default function CreateTasks({setSection, itemNames, setItemNames}) {
     }
 
     function singleChange(value, index) {
+        value = value === "" ? undefined : value
         const newData = [...itemNames]
         newData[index].name = value
         setItemNames(newData)

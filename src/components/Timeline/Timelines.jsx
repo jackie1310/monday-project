@@ -22,8 +22,8 @@ export default function Timeline({itemNames}) {
     useEffect(() => {
         for (let i = 0; i < 3; i++) {
             let data = {
-                name: `${itemNames[i].name}`,
-                id: `${itemNames[i].name}`,
+                name: `${itemNames[i]?.name || `Task ${i}`}`,
+                id: `${itemNames[i]?.name || `Task ${i}`}`,
                 start: today.getTime() + 2 * i * day,
                 end: today.getTime() + ((2 + 2* i) * day),
             }

@@ -3,7 +3,7 @@ import "./TableItem.scss";
 import { Radio } from "antd";
 import TableView from "../../components/TableView/TableView";
 
-export default function TableItem({setSection, itemName, setItemName, itemNames, setItemNames}) {
+export default function TableItem({setSection, itemName, setItemName, itemNames, setItemNames, setCategories}) {
     const [current, setCurrent] = useState("");
     const style = "flex items-center";
     function moveOn () {
@@ -14,6 +14,11 @@ export default function TableItem({setSection, itemName, setItemName, itemNames,
     }
     function handleChange(value) {
         setItemName(value);
+        setCategories(prev => {
+            const newData = [...prev];
+            newData[0] = value
+            return newData;
+        })
         if (value !== "Project" && value !== "Task") {
             setCurrent(value);
         }
@@ -27,7 +32,7 @@ export default function TableItem({setSection, itemName, setItemName, itemNames,
     }
     function totalChange (value)
     {
-        value = current === "" ? "Task" : value;
+        value = value === "" ? "Task" : value;
         const newData = [...itemNames]
         newData.forEach((item,index)=>{
             item.name = `${value} ${index +1}`
@@ -41,7 +46,7 @@ console.log(itemName !== "Project" && itemName !== "Task" )
             <div className="w-5/6">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Monday_logo.svg/2560px-Monday_logo.svg.png" alt='logo' className="w-24 h-5 mb-14"/>
                 <h1 className="text-3xl mb-7">Select one of the items you'd like to manage</h1>
-                <Radio.Group value={itemName !== "Project" && itemName !== "Task" ?current  : itemName} onChange={e => handleChange(e.target.value)} className="flex gap-5 justify-between mb-5">
+                <Radio.Group value={itemName !== "Project" && itemName !== "Task" ?current  : itemName} onChange={e => {handleChange(e.target.value); totalChange(e.target.value)}} className="flex gap-5 justify-between mb-5">
                     <Radio value="Task" className={style} checked={itemName === "Task"}>Tasks</Radio>
                     <Radio value="Project" className={style} checked={itemName === "Project"}>Projects</Radio>
                     <Radio value={current}>

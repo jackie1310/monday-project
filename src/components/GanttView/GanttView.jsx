@@ -25,11 +25,11 @@ export default function GanttView({itemNames}) {
     useEffect(() => {
         for (let i = 0; i < 3; i++) {
             let data = {
-                name: `${itemNames[i].name}`,
-                id: `${itemNames[i].name}`,
+                name: `${itemNames[i]?.name || "Task"}`,
+                id: `${itemNames[i]?.name || `Task ${i}`}`,
                 start: today.getTime() + 2 * i * day,
                 end: today.getTime() + ((2 + 2* i) * day),
-                dependency: `${itemNames[i - 1]?.name}`
+                dependency: `${itemNames[i - 1]?.name || `Task ${i - 1}`}`
             }
             datas.push(data)
         }
