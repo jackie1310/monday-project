@@ -3,7 +3,7 @@ import Button from "../../components/Button";
 import TableView from "../../components/TableView/TableView";
 import { Input } from "antd";
 
-export default function GroupTasks({setSection}) {
+export default function GroupTasks({setSection, groups, setGroups}) {
     const [headers, setHeaders] = useState(3);
     const [rowsThisWeek, setRowsThisWeek] = useState(3);
     const [rowsNextWeek, setRowsNextWeek] = useState(1);
@@ -11,22 +11,7 @@ export default function GroupTasks({setSection}) {
     const [selectedView, setSelectedView] = useState("Table");
     const [listOfView, setListOfView] = useState(["Table"]);
     const [selectedItems, setSelectedItems] = useState(["Task 1", "Task 2", "Task 3"]);
-    const [groups, setGroups] = useState(["This month", "Next month"]);
     const style = "absolute -left-1 -top-0.5 rounded-sm z-10 p-1.5 text-white w-6";
-    function createHeader() {
-        const cols = []
-        if (selectedOptions?.length > 0) {
-            selectedOptions.map((option, index) => (
-                cols.push(<th key={index}>{option}</th>)
-            ))
-        }
-        else {
-            for (let i = 0; i < headers; i++) {
-                cols.push(<th key={i}>----</th>)
-            }
-        }
-        return cols;
-    }
 
     function moveOn () {
         setSection(prev => prev + 1)
@@ -34,17 +19,12 @@ export default function GroupTasks({setSection}) {
     function moveBack () {
         setSection(prev => prev - 1)
     }
-
     function handleChange(value, index) {
-        setGroups(prev => {
-            let current = [...prev];
-            current[index] = value;
-            return current;
-        })
-
+        const newData = [...groups];
+        newData[index] = value;
+        setGroups(newData)
     }
     return (
-        <div className="md:flex block h-screen">
             <div className="md:w-1/2 w-full relative px-10 pt-20 mb-32">
                 <div className="w-5/6">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Monday_logo.svg/2560px-Monday_logo.svg.png" alt='logo' className="w-24 h-5 mb-14"/>
@@ -64,24 +44,8 @@ export default function GroupTasks({setSection}) {
                         <p>"Groups" keep the related items together to help you better organize your work.</p>
                     </div>
                     <Button label="Back" type="back" click={moveBack} />
-                    <Button label="Next" type="front" click={moveOn} />
+                    <Button label="Get Started" type="front" click={moveOn} />
                 </div>
             </div>
-            {/* View Layouts */}
-            <div className="md:w-1/2 bg-gray-100 pl-10">
-                <div className="flex flex-col w-full bg-white pl-5 shadow-2xl shadow-blue-300">
-                    <h1 className="mb-5 mt-3 text-4xl text-gray-600">My demo board</h1>
-                    <div className="flex mb-10 items-start">
-                        {listOfView.map((view, index) => (
-                            <p key={index} className={`border-b-2 ${selectedView === view ? "border-blue-500" : "border-gray-300"} w-16 text-center pb-2`}>{view}</p>
-                        ))}
-                        <button>+</button>
-                    </div>
-                    <div className="overflow-auto h-[435px]">
-                        <TableView setHeaders={setHeaders} headers={headers} createHeader={createHeader} rowsThisWeek={rowsThisWeek} setRowsThisWeek={setRowsThisWeek} rowsNextWeek={rowsNextWeek} setRowsNextWeek={rowsNextWeek} selectedOptions={selectedOptions} selectedItem={selectedItems} groups={groups}/>
-                    </div>
-                </div>
-            </div>
-        </div>
     )
 }

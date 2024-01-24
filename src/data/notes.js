@@ -1,0 +1,1 @@
+export const notes = ["Action items", "Meeting notes", "Other"]

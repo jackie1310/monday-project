@@ -1,5 +1,14 @@
 .tables {
     // overflow-x: scroll;
     // overflow: visible;
-    width: 1000px;
+    max-width: 1000px;
+}
+
+.table>tr, .table>th {
+    display: grid;
+}
+.table>tr>td {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

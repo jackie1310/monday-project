@@ -15,12 +15,9 @@ today.setUTCMinutes(0);
 today.setUTCSeconds(0);
 today.setUTCMilliseconds(0);
 
-const colors_lst = ['#007FFF'];
-const currentDate = new Date();
-const currentMonth = currentDate.toLocaleString('default', { month: 'long' });
-const currentYear = currentDate.getFullYear();
+const colors_lst = ['#FF8C00', '#03C03C', '#FF0800'];
 
-export default function GanttView({itemNames}) {
+export default function Timeline({itemNames}) {
     let datas = []
     useEffect(() => {
         for (let i = 0; i < 3; i++) {
@@ -29,26 +26,23 @@ export default function GanttView({itemNames}) {
                 id: `${itemNames[i].name}`,
                 start: today.getTime() + 2 * i * day,
                 end: today.getTime() + ((2 + 2* i) * day),
-                dependency: `${itemNames[i - 1]?.name}`
             }
             datas.push(data)
         }
         Highcharts.ganttChart('container', {
-            title: {
-                text: `${currentMonth} ${currentYear}`, // Set X-axis title
-            },
             chart: {
                 styledMode: false
             },
             xAxis: [{
+                currentDateIndicator: true,
                 labels: {
-                    enabled: false, // Hide X-axis labels
+                  format: '{value:%e %b}' // day of the week
                 },
                 grid: { // default setting
-                  enabled: false
+                  enabled: true
                 },
-                tickInterval: 1000 * 60 * 60 * 24 * 30, // Month
-            }],
+                tickInterval: 1000 * 60 * 60 * 24, // Day
+              }],
             yAxis: {
                 grid: true,
                 offset: 100,
@@ -99,3 +93,4 @@ export default function GanttView({itemNames}) {
         <div id='container' className='min-w-[500px] max-w-[2000px]'></div>
     )
 }
+// THE CHART

@@ -29,17 +29,17 @@ const mission = [
         priority: "Low"
     }
 ]
-export default function CardView() {
+export default function CardView({categories, itemNames}) {
     return (
         <div className="flex gap-10 overflow-x-scroll">
-            {mission.map((mission) => (
-                <DisplayCard key={mission.id} {...mission}/>
+            {mission.map((mission, index) => (
+                <DisplayCard key={mission.id} {...mission} categories={categories} name={itemNames[index].name}/>
             ))}  
         </div>
     )
 }
 
-function DisplayCard({id, owner, status, due_date, notes, timeline, budget, file_url, last_updated, priority}) {
+function DisplayCard({id, owner, status, due_date, notes, timeline, budget, file_url, last_updated, priority, categories, name}) {
     const title = 
         <div className="w-52 h-40 bg-gray-100 flex items-center justify-center mx-auto">
             <div className="bg-gray-400 text-white px-1 rounded-full">
@@ -197,43 +197,61 @@ function DisplayCard({id, owner, status, due_date, notes, timeline, budget, file
         <div className="box-shadow p-0">
             <Card title={title} size="small" bordered={false}>
                 <div className="flex flex-col gap-3 text-sm">
-                    <p className="text-xl">Mission {id}</p>
-                    <div className="flex justify-between">
-                        <p>Owner</p>
-                        {Owner()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Status</p>
-                        {Status()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Due date</p>
-                        {DueDate()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Notes</p>
-                        {Notes()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Timelines</p>
-                        {Timeline()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Budget</p>
-                        {Budget()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Files</p>
-                        {Files()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Last updated</p>
-                        {Last_update()}
-                    </div>
-                    <div className="flex justify-between">
-                        <p>Priority</p>
-                        {Priority()}
-                    </div>
+                    <p className="text-xl">{name}</p>
+                    {categories.includes("Owner") &&
+                        <div className="flex justify-between">
+                            <p>Owner</p>
+                            {Owner()}
+                        </div>
+                    }
+                    {categories.includes("Status") && 
+                        <div className="flex justify-between">
+                            <p>Status</p>
+                            {Status()}
+                        </div>
+                    }
+                    {categories.includes("Due date") &&
+                        <div className="flex justify-between">
+                            <p>Due date</p>
+                            {DueDate()}
+                        </div>
+                    }
+                    {categories.includes("Notes") &&
+                        <div className="flex justify-between">
+                            <p>Notes</p>
+                            {Notes()}
+                        </div>
+                    }
+                    {categories.includes("Timeline") &&
+                        <div className="flex justify-between">
+                            <p>Timelines</p>
+                            {Timeline()}
+                        </div>
+                    }
+                    {categories.includes("Budget") &&
+                        <div className="flex justify-between">
+                            <p>Budget</p>
+                            {Budget()}
+                        </div>
+                    }
+                    {categories.includes("Files") &&
+                        <div className="flex justify-between">
+                            <p>Files</p>
+                            {Files()}
+                        </div>
+                    }
+                    {categories.includes("Last updated") && 
+                        <div className="flex justify-between">
+                            <p>Last updated</p>
+                            {Last_update()}
+                        </div>
+                    }
+                    {categories.includes("Priority") &&
+                        <div className="flex justify-between">
+                            <p>Priority</p>
+                            {Priority()}
+                        </div>
+                    }
                 </div>
                 
             </Card>
